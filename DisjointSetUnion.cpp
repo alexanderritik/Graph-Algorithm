@@ -47,8 +47,8 @@ public:
 			parent[superparents_x]=superparents_y;
 			total_comp--;
 		}
-cout<<" xis "<<parent[x]<<endl;
 		cout<<total_comp<<endl;
+		
 	}
 
 };
@@ -60,5 +60,19 @@ int main()
 	g.mergeit(1,2);
 	g.mergeit(3,4);
 	g.mergeit(2,3);
+	
+	
+// 	here edges it contain every edge
+	// 		OR THIS CAN ALSO BE USED
+	for(auto v : edges )
+	{
+	int n1 = v[0], n2 = v[1];
+	while(n1 != p[n1]) n1 = p[n1];
+	while(n2 != p[n2]) n2 = p[n2];
+	if( n1 == n2 )
+		res = v;
+	else
+		p[n1] = n2;
+	}
 	
 }
